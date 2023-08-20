@@ -1,0 +1,105 @@
+<div class="col-12">
+  <div class="dropdown" [ngClass]="options?.dropdownPlacement">
+    <button
+      class="btn btn-block btn-outline-primary text-left col-12 d-flex align-items-center justify-content-between"
+      type="button"
+      [title]="selected"
+      [ngClass]="{ 'border border-danger': options?.showError }"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+      id="dLabel"
+    >
+      <span class="opacity-70 placeholder-txt">
+        {{
+          selectedOptions
+            ? selectedOptions
+            : placeholder
+            ? placeholder
+            : "Select"
+        }}
+      </span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </button>
+
+    <div
+      class="dropdown-menu w-100 p-3 rounded-2"
+      aria-labelledby="dLabel"
+      data-bs-spy="scroll"
+      data-bs-target="#navbar-example2"
+      data-bs-root-margin="0px 0px -40%"
+      data-bs-smooth-scroll="true"
+      tabindex="0"
+    >
+      <div
+        *ngIf="options?.showSearch"
+        class="dropdown-item dropdown-item-search"
+        onclick="event.stopPropagation();"
+      >
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="search"
+            placeholder="Search"
+          />
+          <div class="input-group-append">
+            <span class="input-group-text h-100">
+              <i class="fa-brands fa-searchengin"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dropdown-item-checkboxes">
+        <div
+          class="dropdown-item"
+          onclick="event.stopPropagation();"
+          *ngIf="all.visible"
+          [ngClass]="{ checked: all.checked }"
+        >
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              [id]="'ngx_multiselect__' + all.id"
+              (change)="onChange($event, all, undefined)"
+              [checked]="all.checked"
+            />
+            <label
+              class="form-check-label text-small"
+              [for]="'ngx_multiselect__' + all.id"
+              >{{ all.name }}</label
+            >
+          </div>
+        </div>
+
+        <ng-container
+          *ngFor="let item of _choices; let i = index; trackBy: trackById"
+        >
+          <div
+            class="dropdown-item"
+            onclick="event.stopPropagation();"
+            *ngIf="item.visible"
+            [ngClass]="{ checked: item.checked }"
+          >
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                [id]="'ngx_multiselect__' + item.id"
+                (change)="onChange($event, item, i)"
+                [checked]="item.checked"
+              />
+              <label
+                class="form-check-label fs-sm"
+                [for]="'ngx_multiselect__' + item.id"
+              >
+                <span class="pl-2" [title]="item.name">{{ item.name }}</span>
+              </label>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
