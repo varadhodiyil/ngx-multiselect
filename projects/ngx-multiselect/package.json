@@ -1,5 +1,5 @@
 {
-  "name": "ngx-multiselect",
+  "name": "ngx-multiselectv2",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^16.2.0",
@@ -8,5 +8,19 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "author": "varadhodiyil",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/varadhodiyil/ngx-multiselect"
+  },
+  "homepage": "https://github.com/varadhodiyil/ngx-multiselect",
+  "private": false,
+  "keywords": [
+    "ngx-multiselect",
+    "multiselect",
+    "bootstrap multiselect",
+    "bootstrap 5 multiselect"
+  ],
+  "license": "MIT"
 }

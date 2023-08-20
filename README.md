@@ -5,6 +5,12 @@
     - Bootstrap 5.13
     - Angular 16
 
+### Installation
+
+```
+npm i ngx-multiselectv2
+```
+
 ### Configuration
 
 Customisation :
